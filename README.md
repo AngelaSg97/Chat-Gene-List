@@ -34,17 +34,19 @@ Installation and Startup
 Follow these steps to start the application locally using Docker Compose.
 
 Clone the Repository (or navigate to the project directory):
----
 ```bash
 cd /path/to/your/project
+```
 Start the Application: The up --build command will build the Docker image (based on the Dockerfile), create the container, and start it. The process includes installing the dependencies listed in requirements.txt.
----
-Bash
 
+
+```bash
 docker compose up --build
+```
 Access the Interface: Once the logs indicate that Streamlit is running, open your browser and navigate to:
-
+```text
 http://localhost:8501
+```
 Technical Detail: Streamlit's default port is 8501.
 
 Usage Instructions

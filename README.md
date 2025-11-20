@@ -26,7 +26,7 @@ The application requires authentication via the Gemini API key.
 1.  Create a file named `.env` in the root directory of your project.
 2.  Add your API key to the `.env` file in the following format:
 
-```text
+
 GEMINI_API_KEY="YOUR_GEMINI_API_KEY_HERE"
 Note: The .env file is referenced in docker-compose.yml and ensures your API key is managed securely and separate from the source code.
 
@@ -34,12 +34,11 @@ Installation and Startup
 Follow these steps to start the application locally using Docker Compose.
 
 Clone the Repository (or navigate to the project directory):
-
-Bash
-
+---
+```bash
 cd /path/to/your/project
 Start the Application: The up --build command will build the Docker image (based on the Dockerfile), create the container, and start it. The process includes installing the dependencies listed in requirements.txt.
-
+---
 Bash
 
 docker compose up --build
@@ -67,7 +66,6 @@ Project Structure
 .
 ├── .env                  # Environment variables (for the API key)
 ├── README.md             # Italian README file
-├── README_en.md          # This English README file
 ├── requirements.txt      # Python dependencies (streamlit, google-genai, pandas, etc.)
 ├── Dockerfile            # Instructions for creating the Docker image
 ├── docker-compose.yml    # Docker service definition (port mapping, environment variables)

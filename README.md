@@ -1,12 +1,86 @@
-🧬 Gene List Analyzer (Chat with Gene List)This is a bioinformatics assistant based on Streamlit that leverages the Gemini 2.5 Flash model to analyze lists of gene symbols and return structured information in a tabular format, ready for CSV export. It includes external validation against NCBI APIs to ensure gene symbol accuracy.✨ Key FeaturesStructured LLM Analysis: Uses the gemini-2.5-flash-preview-09-2025 model to extract specific data (e.g., full name, function, diseases) from gene lists, ensuring the output is exclusively in JSON format for easy processing.Hybrid Validation: Converts the JSON response into a pandas DataFrame and adds an external validation step against NCBI E-utilities to confirm the existence and full name of each gene.Dynamic and Flexible Prompting: Users can customize the AI query, deciding which data columns they want to extract (e.g., Ensembl ID, Chromosome, Function).Robustness and Stability: Both Gemini and NCBI calls implement an Exponential Backoff logic to automatically handle rate limits and ensure application stability.Containerization for Reproducibility: Uses Docker and Docker Compose for an isolated, consistent, and reproducible execution environment.🛠️ PrerequisitesTo run the application locally, you need the following:Docker Desktop (includes Docker Engine and Docker Compose).A Google Gemini API Key.🔑 API ConfigurationThe application requires authentication via the Gemini API key.Create a file named .env in the root directory of your project.Add your API key to the .env file in the following format:GEMINI_API_KEY="YOUR_GEMINI_API_KEY_HERE"
-Note: The .env file is referenced in docker-compose.yml and ensures your API key is managed securely and separate from the source code.🚀 Installation and StartupFollow these steps to start the application locally using Docker Compose.1. Clone the Repository (or navigate to the project directory):cd /path/to/your/project
-2. Start the Application:The up --build command will build the Docker image (based on the Dockerfile), create the container, and start it. The process includes installing the dependencies listed in requirements.txt.docker compose up --build
-3. Access the Interface:Once the logs indicate that Streamlit is running, open your browser and navigate to:http://localhost:8501
-Technical Detail: Streamlit's default port is 8501.👨‍💻 Usage InstructionsThe Streamlit interface guides the user through three simple phases:Enter Genes (Section 1): Paste a list of gene symbols. The system accepts genes separated by commas, spaces, or new lines.Define the Query (Section 2): Modify the default instruction to specify exactly which tabular fields you want the AI to return (e.g., "Provide Ensembl ID and Disease Association").Analyze: Click the 🚀 Analyze Genes with Gemini button.The results will be shown in an interactive table:Rows with NCBI validation issues will be highlighted in red.You can download the complete table in CSV format for further analysis.⚙️ Project Structure.
-├── .env                  # Environment variables (for the API key)
-├── README.md             # Italian README file
-├── README_en.md          # This English README file
-├── requirements.txt      # Python dependencies (streamlit, google-genai, pandas, etc.)
-├── Dockerfile            # Instructions for creating the Docker image
-├── docker-compose.yml    # Docker service definition (port mapping, environment variables)
-└── gene_chat_app.py      # The main Streamlit application (front-end, LLM, and NCBI logic)
+ Gene List Analyzer (Chat with Gene List)
+
+Questo è un assistente di bioinformatica basato su Streamlit che sfrutta il modello Gemini 2.5 Flash per analizzare liste di simboli genici e restituire informazioni strutturate in formato tabellare, pronte per l'esportazione in CSV. Include una validazione esterna tramite API NCBI per garantire l'accuratezza dei simboli genici.
+
+Funzionalità Principali
+
+Analisi LLM Strutturata: Utilizza il modello gemini-2.5-flash-preview-09-2025 per estrarre dati specifici (es. nome completo, funzione, malattie associate) dalle liste di geni, forzando l'output esclusivamente in formato JSON per una facile elaborazione.
+
+Validazione Ibrida: Converte la risposta JSON in un pandas DataFrame e aggiunge un passaggio di validazione esterna contro le NCBI E-utilities per confermare l'esistenza e il nome completo di ciascun gene.
+
+Prompting Dinamico e Flessibile: Gli utenti possono personalizzare la query all'IA, decidendo esattamente quali colonne di dati vogliono estrarre (es. Ensembl ID, Cromosoma, Funzione).
+
+Robustezza e Stabilità: Sia le chiamate a Gemini che quelle a NCBI implementano una logica di Exponential Backoff per gestire automaticamente i limiti di frequenza (rate limit) e garantire la stabilità dell'applicazione.
+
+Containerizzazione per la Riproducibilità: Utilizza Docker e Docker Compose per un ambiente di esecuzione isolato, consistente e riproducibile.
+
+🛠️ Prerequisiti
+
+Per eseguire l'applicazione in locale, sono necessari i seguenti strumenti:
+
+Docker Desktop (include Docker Engine e Docker Compose).
+
+Una Chiave API Google Gemini.
+
+Configurazione API
+
+L'applicazione richiede l'autenticazione tramite la chiave API di Gemini.
+
+Crea un file chiamato .env nella directory principale del tuo progetto.
+
+Aggiungi la tua chiave API al file .env nel seguente formato:
+
+GEMINI_API_KEY="LA_TUA_CHIAVE_API_GEMINI"
+
+
+Nota: Il file .env è referenziato in docker-compose.yml e garantisce che la tua chiave API sia gestita in modo sicuro e separato dal codice sorgente.
+
+Installazione e Avvio
+
+Segui questi passaggi per avviare l'applicazione in locale utilizzando Docker Compose.
+
+Clona il Repository (o naviga alla directory del progetto):
+
+cd /percorso/al/tuo/progetto
+
+
+Avvia l'Applicazione:
+Il comando up --build costruirà l'immagine Docker (basata sul Dockerfile), creerà il container e lo avvierà. Il processo include l'installazione delle dipendenze elencate in requirements.txt.
+
+docker compose up --build
+
+
+Accedi all'Interfaccia:
+Una volta che i log indicano che Streamlit è in esecuzione, apri il tuo browser e naviga su:
+
+http://localhost:8501
+
+
+Dettaglio Tecnico: La porta predefinita di Streamlit è 8501.
+
+Istruzioni per l'Uso
+
+L'interfaccia Streamlit guida l'utente attraverso tre semplici fasi:
+
+Inserisci i Geni (Sezione 1): Incolla una lista di simboli genici. Il sistema accetta geni separati da virgole, spazi o nuove linee.
+
+Definisci la Query (Sezione 2): Modifica l'istruzione predefinita per specificare esattamente quali campi tabellari vuoi che l'IA restituisca (es. "Fornisci Ensembl ID e Associazione Malattie").
+
+Analizza: Clicca sul pulsante 🚀 Analyze Genes with Gemini.
+
+I risultati saranno mostrati in una tabella interattiva:
+
+Le righe con problemi di validazione NCBI saranno evidenziate in rosso.
+
+Puoi scaricare la tabella completa in formato CSV per ulteriori analisi.
+
+Struttura del Progetto
+
+.
+├── .env                  # Variabili d'ambiente (per la chiave API)
+├── README.md             # Questo file (Documentazione principale)
+├── README_en.md          # Documentazione in inglese
+├── requirements.txt      # Dipendenze Python
+├── Dockerfile            # Istruzioni per l'immagine Docker
+├── docker-compose.yml    # Definizione del servizio Docker
+└── gene_chat_app.py      # L'applicazione Streamlit (logica LLM e NCBI)

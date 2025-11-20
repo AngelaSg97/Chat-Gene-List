@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  gene-chat-app: # <= Nome del servizio
+    build: .
+    ports:
+      - "8501:8501"
+    env_file: # <= Chiave
+      - .env  # <= Valore (elemento di una lista, 2 spazi in più)
+    restart: always
+    volumes:
+      - .:/app

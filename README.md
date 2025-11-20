@@ -66,7 +66,7 @@ Inserisci i Geni (Sezione 1): Incolla una lista di simboli genici. Il sistema ac
 
 Definisci la Query (Sezione 2): Modifica l'istruzione predefinita per specificare esattamente quali campi tabellari vuoi che l'IA restituisca (es. "Fornisci Ensembl ID e Associazione Malattie").
 
-Analizza: Clicca sul pulsante 🚀 Analyze Genes with Gemini.
+Analizza: Clicca sul pulsante Analyze Genes with Gemini.
 
 I risultati saranno mostrati in una tabella interattiva:
 

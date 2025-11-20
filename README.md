@@ -64,11 +64,4 @@ Rows with NCBI validation issues will be highlighted in red.
 
 You can download the complete table in CSV format for further analysis.
 
-Project Structure
-.
-├── .env                  # Environment variables (for the API key)
-├── README.md             # Italian README file
-├── requirements.txt      # Python dependencies (streamlit, google-genai, pandas, etc.)
-├── Dockerfile            # Instructions for creating the Docker image
-├── docker-compose.yml    # Docker service definition (port mapping, environment variables)
-└── gene_chat_app.py      # The main Streamlit application (front-end, LLM, and NCBI logic)
+

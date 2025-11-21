@@ -15,7 +15,7 @@ API_KEY = os.environ.get("GEMINI_API_KEY", "")
 MODEL_NAME = "gemini-2.5-flash-preview-09-2025" 
 # IMPORTANT: Provide a non-default email to NCBI E-utilities. 
 # Using a dummy email like this will prevent request errors if the user doesn't set one.
-NCBI_EMAIL = "gene.analyzer.tool@google.com" 
+NCBI_EMAIL = ""  #add email
 NCBI_BASE_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
 
 # --- NCBI Validation Function ---
@@ -320,4 +320,5 @@ if st.button("Analyze Genes with Gemini", type="primary"):
             
         # Expander to show the exact prompt sent to the LLM
         with st.expander("View Full Prompt Sent to Gemini"):
+
             st.code(full_prompt, language='markdown')

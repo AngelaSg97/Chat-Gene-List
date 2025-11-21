@@ -31,6 +31,7 @@ GEMINI_API_KEY="YOUR_GEMINI_API_KEY_HERE"
 Note: The .env file is referenced in docker-compose.yml and ensures your API key is managed securely and separate from the source code.
 
 Installation and Startup
+
 Add your email address to the "NCBI_EMAIL" variable in the "gene_chat_app.py" file and follow these steps to start the application locally using Docker Compose.
 
 Clone the Repository (or navigate to the project directory):
